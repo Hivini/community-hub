@@ -1,0 +1,29 @@
+CREATE TABLE COMMUNITY (
+    id VARCHAR(40) DEFAULT (uuid()),
+    name VARCHAR(64) NOT NULL UNIQUE,
+    lat REAL NOT NULL,
+    lon REAL NOT NULL,
+    currency VARCHAR(16) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE USER (
+    id VARCHAR(20),
+    name VARCHAR(64) NOT NULL,
+    email VARCHAR(320) NOT NULL,
+    age INTEGER NOT NULL,
+    city VARCHAR(64) NOT NULL,
+    address VARCHAR(128) NOT NULL,
+    communityId VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (communityId) REFERENCES COMMUNITY(id) ON DELETE CASCADE
+);
+
+CREATE TABLE POST (
+    id VARCHAR(40) DEFAULT (uuid()),
+    type INTEGER NOT NULL,
+    creationDate DATE NOT NULL,
+    createdBy VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (createdBy) REFERENCES USER(id) ON DELETE CASCADE
+);
