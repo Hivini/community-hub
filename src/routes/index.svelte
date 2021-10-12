@@ -1,6 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Login from '../components/login.svelte';
+</script>
+
+<Login />
 
 <style lang="scss">
-    @import '../global.scss';
+	@import '../global.scss';
 </style>
