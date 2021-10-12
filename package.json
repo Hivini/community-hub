@@ -16,6 +16,7 @@
     "@typescript-eslint/parser": "^4.19.0",
     "autoprefixer": "^10.3.4",
     "carbon-components-svelte": "^0.44.2",
+    "carbon-icons-svelte": "^10.38.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-svelte3": "^3.2.0",
