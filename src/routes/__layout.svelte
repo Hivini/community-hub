@@ -1,40 +1,41 @@
 <script>
+	import { page } from '$app/stores';
 	import {
 		Header,
-		SideNav,
-		SideNavItems,
-		SideNavLink,
 		SkipToContent,
 		Content,
 		HeaderNav,
 		HeaderNavItem
 	} from 'carbon-components-svelte';
-
-	let isSideNavOpen = false;
+	import Login from '../components/login.svelte';
+	import Register from '../components/register.svelte';
+	import { isLogged } from '../stores/auth';
 </script>
 
-<Header company="Soldados de Vini" platformName="Community Hub" bind:isSideNavOpen>
+<Header company="Soldados de Vini" platformName="Community Hub">
 	<div slot="skip-to-content">
 		<SkipToContent />
 	</div>
 
 	<HeaderNav>
+		<HeaderNavItem href="/home" text="Mi Hogar" />
+		<HeaderNavItem href="/community" text="Mi Comunidad" />
 		<HeaderNavItem href="/register" text="Registrarme" />
 		<HeaderNavItem href="/" text="Ingresar" />
 	</HeaderNav>
-
-	<SideNav bind:isOpen={isSideNavOpen} rail>
-		<SideNavItems>
-			<SideNavLink text="Mi Hogar" href="/hogar" />
-			<SideNavLink text="Mi Comunidad" href="/comunidad" />
-		</SideNavItems>
-	</SideNav>
 </Header>
 
 <Content>
-	<slot />
+	{#if $isLogged}
+		<slot />
+	{:else if $page.path === '/register'}
+		<Register />
+	{:else}
+		<Login />
+	{/if}
 </Content>
 
 <style lang="scss">
 	@import 'layout.scss';
+	@import '../global.scss';
 </style>

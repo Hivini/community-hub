@@ -3,7 +3,4 @@
 </script>
 
 <Login />
-
-<style lang="scss">
-	@import '../global.scss';
-</style>
+>
