@@ -25,7 +25,7 @@
 
 	<SideNav bind:isOpen={isSideNavOpen} rail>
 		<SideNavItems>
-			<SideNavLink text="Mi Hogar" href="/hogar" />
+			<SideNavLink text="Mi Hogar" href="/home" />
 			<SideNavLink text="Mi Comunidad" href="/comunidad" />
 		</SideNavItems>
 	</SideNav>

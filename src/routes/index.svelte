@@ -1,9 +1,6 @@
 <script>
 	import Login from '../components/login.svelte';
+	import '../global.scss';
 </script>
 
 <Login />
-
-<style lang="scss">
-	@import '../global.scss';
-</style>
