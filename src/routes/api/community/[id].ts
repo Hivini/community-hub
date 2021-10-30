@@ -1,9 +1,14 @@
+import { verifyToken } from "$lib/auth_guard";
 import { deleteCommunity, getSingleCommunity, updateCommunity } from "$lib/db/community_lib";
-import { isCreateCommunity } from "$lib/dto/create_community";
+import { isCreateCommunity } from "$lib/dto/community";
 import { DEFAULT_ERROR_REQUEST } from "$lib/errors";
 import type { EndpointOutput } from "@sveltejs/kit";
 
-export async function get({ params }): Promise<EndpointOutput> {
+export async function get({ params, headers }): Promise<EndpointOutput> {
+    const error = verifyToken(headers);
+    if (error != null) {
+        return error;
+    }
     const { id } = params;
     if (id) {
         const community = await getSingleCommunity(id);
@@ -15,7 +20,12 @@ export async function get({ params }): Promise<EndpointOutput> {
     return DEFAULT_ERROR_REQUEST;
 };
 
-export async function put({ params, body }): Promise<EndpointOutput> {
+export async function put({ params, body, headers }): Promise<EndpointOutput> {
+    // TODO(hivini): Verify only admins can do this.
+    const error = verifyToken(headers);
+    if (error != null) {
+        return error;
+    }
     const { id } = params;
     if (id && isCreateCommunity(body)) {
         const community = await getSingleCommunity(id);
@@ -31,7 +41,12 @@ export async function put({ params, body }): Promise<EndpointOutput> {
     return DEFAULT_ERROR_REQUEST;
 }
 
-export async function del({ params }): Promise<EndpointOutput> {
+export async function del({ params, headers }): Promise<EndpointOutput> {
+    // TODO(hivini): Verify only admins can do this.
+    const error = verifyToken(headers);
+    if (error != null) {
+        return error;
+    }
     const { id } = params;
     if (id) {
         const community = await getSingleCommunity(id);
