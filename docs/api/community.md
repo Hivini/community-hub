@@ -14,11 +14,15 @@
 ## Get all communities
 **`GET /api/community`**
 ### Example
-Request
+**Request**
 ```http
 GET http://localhost:3000/api/community
 ```
-Response
+*Headers*
+```http
+Authorization: "Bearer TOKEN_HERE"
+```
+**Response**
 ```json
 [
     {
@@ -44,11 +48,15 @@ Response
 **`GET /api/community/{id}`**
 
 ### Example
-Request
+**Request**
 ```http
 GET http://localhost:3000/api/community/11
 ```
-Response
+*Headers*
+```http
+Authorization: "Bearer TOKEN_HERE"
+```
+**Response**
 ```json
 {
     "id": 11,
@@ -63,12 +71,15 @@ Response
 ## Insert community
 **`POST /api/community`**
 ### Example
-Request
-
+**Request**
 ```http
 POST http://localhost:3000/api/community
 ```
-
+*Headers*
+```http
+Authorization: "Bearer TOKEN_HERE"
+```
+*Body*
 ```json
 {
     "name": "Test Community",
@@ -78,7 +89,7 @@ POST http://localhost:3000/api/community
     "city": "Mountain View"
 }
 ```
-Response
+**Response**
 ```json
 {
     "id": 12,
@@ -94,10 +105,15 @@ Response
 **`PUT /api/community/{id}`**
 ### Example
 
-Request
+**Request**
 ```http
 PUT http://localhost:3000/api/community/11
 ```
+*Headers*
+```http
+Authorization: "Bearer TOKEN_HERE"
+```
+*Body*
 ```json
 {
     "name": "Test Community 8",
@@ -107,7 +123,7 @@ PUT http://localhost:3000/api/community/11
     "city": "Mountain View"
 }
 ```
-Response
+**Response**
 ```json
 {
     "id": 11,
@@ -123,11 +139,15 @@ Response
 **`DELETE /api/community/{id}`**
 ### Example
 
-Request
+**Request**
 ```http
 DELETE http://localhost:3000/api/community/11
 ```
-Response
+*Headers*
+```http
+Authorization: "Bearer TOKEN_HERE"
+```
+**Response**
 ```
 Community with id '11' has been deleted successfully.
 ```
