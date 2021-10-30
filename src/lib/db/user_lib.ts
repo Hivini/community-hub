@@ -3,6 +3,12 @@ import jwt from 'jsonwebtoken';
 import type { CreateUser, User } from "$lib/dto/user";
 import { queryWithValues } from "./db_lib";
 
+/**
+ * Generate a JWT token based on the user information.
+ * 
+ * @param user The user information. 
+ * @returns The JWT token generated.
+ */
 export async function login(user: User) {
     // TODO(hivini): Save the token on the DB.
     return jwt.sign(
