@@ -13,7 +13,7 @@ export async function login(user: User) {
     // TODO(hivini): Save the token on the DB.
     return jwt.sign(
         { id: user.uuid, email: user.email },
-        'COOL_KEY',
+        process.env['JWT_SECRET'],
         {
             expiresIn: "4h",
         }
