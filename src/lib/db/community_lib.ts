@@ -1,4 +1,4 @@
-import type { CreateCommunity } from "$lib/dto/create_community";
+import type { CreateCommunity } from "$lib/dto/community";
 import { query, queryWithValues } from "./db_lib";
 
 /**

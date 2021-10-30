@@ -1,5 +1,5 @@
 import { deleteCommunity, getSingleCommunity, updateCommunity } from "$lib/db/community_lib";
-import { isCreateCommunity } from "$lib/dto/create_community";
+import { isCreateCommunity } from "$lib/dto/community";
 import { DEFAULT_ERROR_REQUEST } from "$lib/errors";
 import type { EndpointOutput } from "@sveltejs/kit";
 
