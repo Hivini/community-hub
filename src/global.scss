@@ -1,1 +1,13 @@
 @import 'carbon-components-svelte/css/white.css';
+
+:global(body) {
+	background-color: #ebebeb;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #333;
+}
+
+:global(.bx--content) {
+	background-color: #ebebeb;
+}

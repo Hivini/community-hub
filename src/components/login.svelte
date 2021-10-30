@@ -4,9 +4,14 @@
 	import { Button } from 'carbon-components-svelte';
 	import { isLogged } from '../stores/auth';
 
+	$: {
+		if ($isLogged) {
+			goto('/community');
+		}
+	}
+
 	function handleSubmit() {
 		isLogged.set(true);
-		goto('/community');
 	}
 </script>
 

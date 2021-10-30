@@ -1,0 +1,63 @@
+.C-Container {
+	@apply flex justify-center;
+	.C-Grid {
+		@apply grid grid-flow-row grid-cols-2 gap-4 max-w-screen-xl w-full;
+		.C-Emergencies {
+			@apply w-full bg-white p-4 rounded-lg shadow-sm;
+			@apply col-span-2;
+			.C-EContainer {
+				@apply mt-4;
+				.C-EHouse {
+					@apply text-sm font-semibold;
+				}
+				.C-EMessage {
+					@apply text-lg font-semibold text-red-600;
+				}
+			}
+		}
+		.C-Chat {
+			@apply w-full bg-white p-4 rounded-lg shadow-sm;
+			@apply row-span-2 h-96;
+			.C-Message {
+				@apply flex flex-col my-2;
+				.C-MHeader {
+					@apply flex flex-row justify-between;
+					.C-MHName {
+						@apply text-sm font-semibold text-blue-600;
+					}
+					.C-MHTime {
+						@apply text-xs text-gray-600;
+					}
+				}
+				.C-MContent {
+					@apply text-sm text-gray-600;
+				}
+			}
+		}
+		.C-Events {
+			@apply w-full bg-white p-4 rounded-lg shadow-sm;
+			.C-ESingle {
+				@apply my-2;
+				h5 {
+					@apply text-lg font-semibold;
+				}
+				p {
+					@apply text-sm text-gray-600;
+				}
+			}
+		}
+		.C-Petitions {
+			@apply w-full bg-white p-4 rounded-lg shadow-sm;
+			p {
+				@apply py-1 my-1;
+				span {
+					@apply font-semibold;
+				}
+			}
+		}
+		h4 {
+			@apply text-xl font-bold text-gray-900 pb-2;
+			border-bottom: 1px solid #f1f1f1;
+		}
+	}
+}
