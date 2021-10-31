@@ -27,7 +27,7 @@ CREATE TABLE USER (
 );
 
 CREATE TABLE REQUEST (
-    id VARCHAR(40) DEFAULT (uuid()),
+    id INT AUTO_INCREMENT,
     content VARCHAR(256) NOT NULL,
     creationDate DATETIME NOT NULL,
     houseId INT NOT NULL,
@@ -36,16 +36,16 @@ CREATE TABLE REQUEST (
 );
 
 CREATE TABLE COMMUNITY_EVENT (
-    id VARCHAR(40) DEFAULT (uuid()),
+    id INT AUTO_INCREMENT,
     description VARCHAR(256) NOT NULL,
-    creationDate DATETIME NOT NULL,
-    houseId INT NOT NULL,
+    eventDate DATETIME NOT NULL,
+    communityId INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (houseId) REFERENCES HOUSE(id)
+    FOREIGN KEY (communityId) REFERENCES COMMUNITY(id)
 );
 
 CREATE TABLE MESSAGE (
-    id VARCHAR(40) DEFAULT (uuid()),
+    id INT AUTO_INCREMENT,
     description VARCHAR(256) NOT NULL,
     sentTime DATETIME NOT NULL,
     communityId INT NOT NULL,
