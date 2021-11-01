@@ -8,7 +8,7 @@ const pool = mariadb.createPool(
         database: 'testing_community'
     });
 
-export async function query(query: string) {
+export async function simpleQuery(query: string) {
     let conn: mariadb.PoolConnection;
     let rows: any;
     try {

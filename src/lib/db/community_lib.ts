@@ -1,5 +1,5 @@
 import type { CreateCommunity } from "$lib/dto/community";
-import { query, queryWithValues } from "./db_lib";
+import { simpleQuery, queryWithValues } from "./db_lib";
 
 /**
  * Gets all existing communities.
@@ -7,7 +7,7 @@ import { query, queryWithValues } from "./db_lib";
  * @returns A list of all the communities in the database.
  */
 export async function getCommunities() {
-    return query("SELECT * from community");
+    return simpleQuery("SELECT * from community");
 }
 
 /**
