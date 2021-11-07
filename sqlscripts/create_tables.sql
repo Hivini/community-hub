@@ -1,3 +1,6 @@
+CREATE DATABASE community_hub;
+USE community_hub;
+
 CREATE TABLE COMMUNITY(
     id INT AUTO_INCREMENT,
     name VARCHAR(64) NOT NULL,
