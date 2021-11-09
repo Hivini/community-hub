@@ -7,7 +7,7 @@ import { simpleQuery, queryWithValues } from "./db_lib";
  * @returns A list of all the communities in the database.
  */
 export async function getCommunities() {
-    return simpleQuery("SELECT * from community");
+    return simpleQuery("SELECT * from COMMUNITY");
 }
 
 /**
