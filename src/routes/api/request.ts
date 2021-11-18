@@ -13,10 +13,10 @@ export async function get({ headers }): Promise<EndpointOutput> {
 }
 
 export async function post({ body, headers }): Promise<EndpointOutput> {
-	/* const error = verifyToken(headers);
+	const error = verifyToken(headers);
 	if (error != null) {
 		return error;
-	} */
+	}
 	if (isCreateRequest(body)) {
 		let resp = await insertRequest(body);
 		let request = await getSingleRequest(resp['insertId']);
