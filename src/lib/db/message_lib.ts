@@ -52,7 +52,7 @@ export async function updateMessage(id: number, message: CreateMessage) {
  * @param id The ID of the message.
  * @returns The data if the operation is successful.
  */
-export async function deleteMesssage(id: number) {
+export async function deleteMessage(id: number) {
 	let query = 'DELETE FROM MESSAGE WHERE id = ?';
 	return queryWithValues(query, [id]);
 }
