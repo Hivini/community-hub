@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
+import os.path
+import sys
 from __future__ import print_function
 from subprocess import call
-import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -91,6 +92,7 @@ logger.LogInfo('Running dump_mariadb.sh ...')
 rc = call("./dump_mariadb.sh", shell=True)
 if rc != 0:
     logger.LogError('There was a problem executing the script.')
+    sys.exit(1)
 logger.LogInfo('Created backup successfully.')
 logger.LogInfo('========= Upload process =========')
 connector = GoogleDriveConnector(logger)
