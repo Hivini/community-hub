@@ -9,7 +9,7 @@ $ DB_HOST='localhost' DB_USER='root' DB_PASS='ubuntu' JWT_SECRET='secret' npm ru
 ---
 **NOTE**
 
-This assumes you are going to run Docker locally.
+This assumes you are going to run Docker locally. Scripts can be found under the `scripts/` folder.
 
 ---
 ### Run the script
