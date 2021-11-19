@@ -1,5 +1,5 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { getRequests, getSingleRequest, insertRequest } from '$lib/db/request_lib';
+import { getRequests, getSingleRequest, insertRequest, updateRequest } from '$lib/db/request_lib';
 import { DEFAULT_ERROR_REQUEST } from '$lib/errors';
 import { isCreateRequest } from '$lib/dto/request';
 import { verifyToken } from '$lib/auth_guard';

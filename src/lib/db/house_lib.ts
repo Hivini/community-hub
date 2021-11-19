@@ -42,7 +42,7 @@ export async function insertHouse(house: CreateHouse) {
  */
 export async function updateHouse(id: number, house: CreateHouse) {
 	let query = 'UPDATE HOUSE SET name=?, communityId=? WHERE id = ?';
-	let values = [house.name, id];
+	let values = [house.name, house.communityId, id];
 	return queryWithValues(query, values);
 }
 
