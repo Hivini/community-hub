@@ -44,7 +44,6 @@ export async function put({ body, headers, params }): Promise<EndpointOutput> {
 }
 
 export async function del({ params, headers }): Promise<EndpointOutput> {
-	// TODO(hivini): Verify only admins can do this.
 	const error = verifyToken(headers);
 	if (error != null) {
 		return error;
