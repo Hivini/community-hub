@@ -1,0 +1,19 @@
+.C-Message {
+    @apply flex flex-col my-2;
+
+    .C-MHeader {
+        @apply flex flex-row justify-between;
+
+        .C-MHName {
+            @apply text-sm font-semibold text-blue-600;
+        }
+
+        .C-MHTime {
+            @apply text-xs text-gray-600;
+        }
+    }
+
+    .C-MContent {
+        @apply text-sm text-gray-600;
+    }
+}

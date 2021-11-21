@@ -1,0 +1,15 @@
+.C-Events {
+    @apply w-full bg-white p-4 shadow-sm;
+
+    .C-ESingle {
+        @apply my-2;
+
+        h5 {
+            @apply text-lg font-semibold;
+        }
+
+        p {
+            @apply text-sm text-gray-600;
+        }
+    }
+}

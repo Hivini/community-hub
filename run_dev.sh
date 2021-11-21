@@ -1,0 +1,1 @@
+DB_HOST='localhost' DB_USER='root' DB_PASS='ubuntu' JWT_SECRET='secret' npm run dev

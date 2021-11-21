@@ -2,20 +2,14 @@
 	import { TextArea, Button, Select, SelectItem } from 'carbon-components-svelte';
 	import Post from '../components/post.svelte';
 	let posts = [];
-	fetch('https://fakerapi.it/api/v1/texts?_quantity=10').then((res) => {
-		res.json().then((parsedRes) => {
-			posts = parsedRes.data;
-		});
-	});
 </script>
 
 <div style="width: 80%; align-self: center;">
-	<TextArea labelText="Publicar Evento" placeholder="Ingresa un nuevo evento..." />
+	<TextArea labelText="Publicar Nuevo Contenido" placeholder="Ingresa el contenido..." />
 	<div>
-		<Select selected="emergency">
-			<SelectItem value="emergency" text="Emergencia" />
-			<SelectItem value="petition" text="Petición" />
-			<SelectItem value="message" text="Mensaje" />
+		<Select selected="event">
+			<SelectItem value="event" text="Emergencia" />
+			<SelectItem value="request" text="Petición" />
 		</Select>
 		<Button style="margin-top: 16px; float: right;">Publicar</Button>
 	</div>
