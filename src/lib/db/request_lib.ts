@@ -7,7 +7,9 @@ import { simpleQuery, queryWithValues } from './db_lib';
  * @returns A list of all the requests in the database.
  */
 export async function getRequests() {
-	return simpleQuery('SELECT * from REQUEST');
+	return simpleQuery(
+		'SELECT REQUEST.*, HOUSE.name from REQUEST INNER JOIN HOUSE ON REQUEST.houseId = HOUSE.id'
+	);
 }
 
 /**
