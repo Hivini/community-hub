@@ -9,11 +9,11 @@ const http = Axios.create({
 });
 
 export const setToken = (token: string) => {
-	http.defaults.headers.common.authorization = token;
+	http.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 export const clearToken = () => {
-	http.defaults.headers.common.authorization = null;
+	http.defaults.headers.common.Authorization = null;
 };
 
 export default http;
