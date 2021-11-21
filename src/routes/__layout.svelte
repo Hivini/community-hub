@@ -37,12 +37,15 @@
 		</div>
 
 		<HeaderNav>
-			<HeaderNavItem href="/community" text="Mi Hogar" />
-			<HeaderNavItem href="/chat" text="Chat" />
-			<HeaderNavItem href="/events" text="Eventos" />
-			<HeaderNavItem href="/requests" text="Peticiones" />
-			<HeaderNavItem href="/register" text="Registrarme" />
-			<HeaderNavItem href="/" text="Ingresar" />
+			{#if $isLogged}
+				<HeaderNavItem href="/community" text="Mi Hogar" />
+				<HeaderNavItem href="/chat" text="Chat" />
+				<HeaderNavItem href="/events" text="Eventos" />
+				<HeaderNavItem href="/requests" text="Peticiones" />
+			{:else}
+				<HeaderNavItem href="/register" text="Registrarme" />
+				<HeaderNavItem href="/" text="Ingresar" />
+			{/if}
 		</HeaderNav>
 	</Header>
 

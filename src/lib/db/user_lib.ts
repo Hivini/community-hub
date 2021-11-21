@@ -34,7 +34,8 @@ export async function registerUser(user: CreateUser) {
  * @returns The user that was found.
  */
 export async function findUser(email: string) {
-	let query = 'SELECT * FROM USER WHERE email = ?';
+	let query =
+		'SELECT USER.*, HOUSE.name as houseName FROM USER INNER JOIN HOUSE ON USER.houseId = HOUSE.id WHERE email = ?';
 	let resp = await queryWithValues(query, [email]);
 	// Give the first result, since it's going to be a list.
 	return resp[0];

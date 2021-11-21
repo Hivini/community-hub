@@ -12,6 +12,12 @@
 	let password = '';
 	let password_confirm = '';
 
+	$: {
+		if ($isLogged) {
+			goto('/community');
+		}
+	}
+
 	async function handleSubmit() {
 		if (password != password_confirm) {
 			alert('Passwords do not match');
