@@ -4,45 +4,71 @@
 		Button,
 		DatePicker,
 		DatePickerInput,
-		TimePicker,
-		TimePickerSelect,
-		SelectItem
+		TimePicker
 	} from 'carbon-components-svelte';
+	import { onMount } from 'svelte';
+	import http from '../../api/http';
 
-	function postEvent() {}
+	let description = '';
+	let date = '';
+	let events = [];
+
+	function orderEvents(ev) {
+		return ev.sort((a, b) => {
+			return new Date(a.eventDate) > new Date(b.eventDate) ? 1 : -1;
+		});
+	}
+
+	$: orderedEvents = orderEvents(events);
+
+	async function getEvents() {
+		let response = await http.get('/community/1/event');
+		events = response.data;
+	}
+
+	async function postEvent() {
+		await http.post('/community/1/event', {
+			description,
+			datetime: new Date(`${date}`).toISOString().split('T')[0]
+		});
+
+		description = '';
+
+		getEvents();
+	}
+
+	onMount(() => {
+		getEvents();
+	});
 </script>
 
 <div class="C-Events">
 	<h4>Eventos</h4>
 	<div>
 		<div class="C-ESingle">
-			<h5>Today</h5>
-			<p>07:00 - BBQ Party at house 14</p>
-			<p>18:00 - Resource planning at main house</p>
-		</div>
-		<div class="C-ESingle">
-			<h5>Tomorrow</h5>
-			<p>09:00 - An important event</p>
-			<p>20:00 - Another not that important event</p>
+			{#each orderedEvents as event}
+				<p>{event.eventDate.split(' ')[0]} // {event.description}</p>
+			{/each}
 		</div>
 	</div>
 </div>
 
 <div style="margin-top:10px; padding:15px; height: auto; background-color: white;">
-	<TextInput labelText="Nombre del evento" placeholder="Escribe el nombre del evento..." />
+	<TextInput
+		labelText="Nombre del evento"
+		placeholder="Escribe el nombre del evento..."
+		bind:value={description}
+	/>
 
-	<DatePicker style="margin-top:10px;" datePickerType="single" on:change>
+	<DatePicker
+		style="margin-top:10px;"
+		datePickerType="single"
+		on:change={(ev) => {
+			date = ev.detail.dateStr;
+		}}
+	>
 		<DatePickerInput labelText="Día del evento" placeholder="dd/mm/yyyy" />
 	</DatePicker>
-
-	<div style="margin-top: 10px;">
-		<TimePicker labelText="Hora del evento" placeholder="hh:mm">
-			<TimePickerSelect value="PM" style="margin-left: 5px;">
-				<SelectItem value="am" text="AM" />
-				<SelectItem value="pm" text="PM" />
-			</TimePickerSelect>
-		</TimePicker>
-	</div>
 </div>
 <Button style="margin-top:10px; float: right;" on:click={postEvent}>Publicar</Button>
 
