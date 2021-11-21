@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import { TextInput } from 'carbon-components-svelte';
 	import { Button } from 'carbon-components-svelte';
+	import { Json16 } from 'carbon-icons-svelte';
+	import { dataset_dev } from 'svelte/internal';
 	import http, { setToken } from '../api/http';
 	import { isLogged } from '../stores/auth';
 
@@ -21,9 +23,11 @@
 				password
 			})
 			.then((res) => {
+				console.log('login response:', res);
 				const token = res.data.token;
 				setToken(token);
 				localStorage.setItem('token', token);
+				localStorage.setItem('user', JSON.stringify(res.data.user));
 				isLogged.set(true);
 				goto('/community');
 			})

@@ -40,6 +40,7 @@
 		const token = response.data.token;
 		setToken(token);
 		localStorage.setItem('token', token);
+		localStorage.setItem('user', JSON.stringify(response.data.user));
 		isLogged.set(true);
 		goto('/community');
 	}
