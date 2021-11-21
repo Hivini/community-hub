@@ -2,8 +2,6 @@
 	import { goto } from '$app/navigation';
 	import { TextInput } from 'carbon-components-svelte';
 	import { Button } from 'carbon-components-svelte';
-	import { Json16 } from 'carbon-icons-svelte';
-	import { dataset_dev } from 'svelte/internal';
 	import http, { setToken } from '../api/http';
 	import { isLogged } from '../stores/auth';
 
