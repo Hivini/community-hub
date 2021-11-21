@@ -7,7 +7,9 @@ import { simpleQuery, queryWithValues } from './db_lib';
  * @returns A list of all the messages in the database.
  */
 export async function getMessages() {
-	return simpleQuery('SELECT * from MESSAGE');
+	return simpleQuery(
+		'SELECT MESSAGE.*, USER.name from MESSAGE INNER JOIN USER ON MESSAGE.userId = USER.id'
+	);
 }
 
 /**
